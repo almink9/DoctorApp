@@ -21,3 +21,9 @@ def login_page():
     else:
       flash('Invalid email or password.', category='danger')
   return render_template('login.html', form=form)
+
+@app.route('/logout')
+def logout_page():
+  logout_user()
+  flash("You have been logged out.", category='info')
+  return redirect(url_for('home_page'))
