@@ -18,6 +18,18 @@
   <div class="row">
     <div>
       <h3 style="width: 100vw; font-weight: bold;">Patient list for today</h3>
+      {% for item in data %}
+      <div style="display: flex; flex-direction: row; height: 80px; width: 80px;">
+        <img style="height: 60px; width: 60px;" src="https://i.imgur.com/mIaiD6I.png" alt="" />
+        <div style="display: flex; flex-direction: column;">
+          <h4 style="width: 100vw; font-weight: bold;">{{ item.username }}</h4>
+          <div style="display: flex; flex-direction: row;">
+            <p> {{ item.time }} - {{ item.description }} </p>
+          </div>
+        </div>
+      </div>
+      <br>
+      {% endfor %}
     </div>
   </div>
   {% endif %}

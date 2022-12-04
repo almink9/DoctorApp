@@ -1,13 +1,14 @@
 from doc import app, db
-from flask import render_template, redirect, url_for, flash, request 
-from doc.models import User
+from flask import render_template, redirect, url_for, flash, request
+from doc.models import User, Patient
 from doc.forms import LoginForm
 from flask_login import login_user, logout_user, login_required, current_user
 
 @app.route("/")
 @app.route("/home")
 def home_page():
-  return render_template('home.html')
+  patient = Patient.query.all()
+  return render_template('home.html', data=patient)
   
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
