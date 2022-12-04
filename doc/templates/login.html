@@ -10,8 +10,13 @@
       <img class="mb-4" src="https://global-uploads.webflow.com/623afbf7b898f2b9ad81d428/637691512f1c492caf132549_ProductArena_logo%201%20(2).svg" />
       <h1>Please Login</h1>
       <br>
-      <input>
-      <button>Login</button>
+      {{ form.email_address.label() }}
+      {{ form.email_address(class="form-control", placeholder="Email") }}
+
+      {{ form.password.label() }}
+      {{ form.password(class="form-control", placeholder="Password") }}
+      <br>
+      {{ form.submit(class="btn btn-lg btn-block w-100 p-3 btn-success") }}
     </form>
   </div>
 

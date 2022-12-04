@@ -4,11 +4,17 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
 app = Flask(__name__)
+ctx = app.app_context()
+ctx.push()
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///doc.db'
 app.config['SECRET_KEY'] = '563ec91eee0d9950b2ce7972'
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
+
+login_manager = LoginManager(app)
+login_manager.login_view = "login_page"
+login_manager.login_message_category = 'info'
 
 
 from doc import routes
