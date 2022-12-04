@@ -6,6 +6,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 
 @app.route("/")
 @app.route("/home")
+@login_required
 def home_page():
   patient = Patient.query.all()
   return render_template('home.html', data=patient)
